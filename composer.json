@@ -1,0 +1,17 @@
+{
+    "name": "asa/crypt",
+    "autoload": {
+        "psr-4": {
+            "control\\": "src/controllers/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Asa",
+            "email": "danielbatalhagoncalves.dev@gmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^3.0"
+    }
+}

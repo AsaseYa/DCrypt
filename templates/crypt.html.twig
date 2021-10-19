@@ -1,0 +1,17 @@
+{% extends '/layout/layout.html.twig' %}
+
+{% block title %}
+    {{ parent() }} - Crypt
+{% endblock %}
+
+{% block css %}
+    {% include 'components/_css.html.twig' %}
+{% endblock %}
+
+{% block navbar %}
+    {% include 'components/_navbar.html.twig' %}
+{% endblock %}
+
+{% block content %}
+    <p>je suis dans crypt</p>
+{% endblock %}
