@@ -5,12 +5,12 @@ namespace Src\Models;
 
 abstract class Decrypt
 {
-    protected string $input;
+/*    protected string $input;
 
     public function __construct(string $input)
     {
         $this->input = $input;
-    }
+    }*/
 
     public function getInput(): string
     {

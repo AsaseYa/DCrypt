@@ -60,10 +60,11 @@
 }
 
 .text-input > textarea {
+    font-size: 1rem;
     margin: 0;
-    padding: 0;
+    padding: 0.3rem;
     grid-area: textArea;
-    width: calc(100% - 2px);
+    width: calc(100% - 2px - 0.6rem);
     border: 1px solid var(--black);
     resize: none;
 }
@@ -112,10 +113,11 @@
 }
 
 .text-translated > textarea {
+    font-size: 1rem;
     margin: 0;
-    padding: 0;
+    padding: 0.3rem;
     grid-area: textArea;
-    width: calc(100% - 2px);
+    width: calc(100% - 2px - 0.6rem);
     border: 1px solid var(--black);
     resize: none;
 }

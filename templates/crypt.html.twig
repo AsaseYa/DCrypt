@@ -22,12 +22,12 @@
 </form>#}
     <form class="text-input" action="" method="POST">
         <label for="textInput">Text to Crypt</label>
-        <textarea id="textInput" name="textInput" placeholder="Write the text to encode"></textarea>
+        <textarea id="textInput" name="clearMessage" placeholder="Write the text to encode">{{ clearMessage }}</textarea>
         <button type="submit">Encode !</button>
     </form>
     <form class="text-translated" action="" method="POST">
         <label for="textTranslated">Text to DCrypt</label>
-        <textarea id="textTranslated" name="textInput" placeholder="Text encoded !"></textarea>
+        <textarea id="textTranslated" name="cryptMessage" placeholder="Write the text to decode">{{ cryptMessage }}</textarea>
         <button type="submit">Decode !</button>
     </form>
 {% endblock %}

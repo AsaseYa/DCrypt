@@ -4,22 +4,23 @@ namespace Src\Models;
 
 class ShiftEncryption extends Decrypt
 {
+
     public function decryptInput(string $input): string
     {
-
+        //TODO
 
         return "A";
     }
 
-    public function encryptInput(): string
+    public function encryptInput($clearMessage): string
     {
         $gap = 1; //à rendre modulable
-        if (!($gap > -25 && $gap < 26)) {
+        if (!($gap >= -26 && $gap <= 26)) {
             return "Gap must be between < 25 and > -25 ";
         }
         $checkKeys = range("a", "z");
         $messageEncoded = "";
-        $toEncodeChars = str_split($this->stripAccents($this->input));
+        $toEncodeChars = str_split($this->stripAccents($clearMessage));
         foreach ($toEncodeChars as $toEncodeChar) {
             for ($i = 0; $i < count($checkKeys); $i++) {
                 if (is_numeric($toEncodeChar)) {
@@ -59,7 +60,7 @@ class ShiftEncryption extends Decrypt
             }
         } else {
             if ($iterate + $gap < 0) {
-                $index = ($iterate + $gap + 26 - 1);
+                $index = ($iterate + $gap + 26);
             } else {
                 $index = $iterate + $gap;
             }

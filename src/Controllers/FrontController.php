@@ -1,14 +1,15 @@
 <?php
 
-//problem avec namespace
+//TODO problem avec namespace
 
+use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
 class FrontController
 {
-    protected \Twig\Environment $twig;
+    protected Environment $twig;
 
     public function __construct()
     {
@@ -29,21 +30,18 @@ class FrontController
     }
 
 
-/*    public function homeView(): string
-    {
-        $cssFiles = ["navbar", "home"];
-        return $this->twig->render('home.html.twig', ["cssFiles" => $cssFiles]);
-    }
 
-    public function cryptView(): string
-    {
-        $cssFiles = ["navbar", "crypt"];
-        return $this->twig->render('crypt.html.twig', ["cssFiles" => $cssFiles]);
-    }
+    
 
-    public function aboutView(): string
+    /*    public function cryptView(string $encodedMessage = null, string $decodedMessage = null): string
     {
-        $cssFiles = ["navbar", "about"];
-        return $this->twig->render( 'about.html.twig', ["cssFiles" => $cssFiles]);
+        $cssFiles = ["settings", "navbar", "crypt"];
+        return $this->twig->render('crypt.html.twig', ["cssFiles" => $cssFiles,
+            "encodedMessage" => $encodedMessage,
+            "decodedMessage" => $decodedMessage
+        ]);
     }*/
+
+
+
 }
