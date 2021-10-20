@@ -1,4 +1,70 @@
-* {
-    color: red;
-    background-color: red;
+.main-container {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 4rem 3rem repeat(8, auto) 2rem 2rem; /*à modifier */
+    grid-template-areas:
+            "navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar"
+            ". . . . . . . . . . . ."
+            ". . . news news news news news news . . ."
+            ". . . news news news news news news . . ."
+            ". . . news news news news news news . . ."
+            ". . . news news news news news news . . ."
+            ". . . news news news news news news . . ."
+            ". . . news news news news news news . . ."
+            ". . . news news news news news news . . ."
+            ". . . news news news news news news . . ."
+            ". . . . . . . . . . . ."
+            ". . . . . . . . . . . .";
+    justify-items: center;
 }
+
+.articles-container {
+    border-radius: 10px;
+    background-color: var(--bg-tertiary-color);
+    grid-area: news;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.articles-container-title {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: var(--bg-tertiary-color);
+    font-size: 2.5rem;
+    text-align: center;
+    align-self: center;
+    width: 100%;
+    background-color: var(--black);
+    padding: 1rem 0 1rem 0;
+
+}
+
+.card-news {
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.card-title-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 1rem 0 1rem 0;
+}
+
+.card-news-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.card-news-container > p {
+    padding: 1rem 0 1rem 0;
+    text-align: justify;
+}
+
+

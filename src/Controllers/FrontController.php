@@ -1,5 +1,10 @@
 <?php
 
+//problem avec namespace
+
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 
 class FrontController
 {
@@ -12,52 +17,33 @@ class FrontController
         $this->twig->addExtension(new Twig\Extension\DebugExtension());
     }
 
-    public function getTwig(): \Twig\Environment
-    {
-        return $this->twig;
-    }
-
     /**
-     * @throws \Twig\Error\SyntaxError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\LoaderError
+     * @throws SyntaxError
+     * @throws RuntimeError
+     * @throws LoaderError
      */
     public function addView(string $page): string
     {
-        $cssFiles = ["navbar", $page];
+        $cssFiles = ["settings", "navbar", $page];
         return $this->twig->render('/' . $page . '.html.twig', ["cssFiles" => $cssFiles]);
     }
 
-    /**
-     * @throws \Twig\Error\SyntaxError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\LoaderError
-     */
-    public function homeView(): string
+
+/*    public function homeView(): string
     {
         $cssFiles = ["navbar", "home"];
         return $this->twig->render('home.html.twig', ["cssFiles" => $cssFiles]);
     }
 
-    /**
-     * @throws \Twig\Error\SyntaxError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\LoaderError
-     */
     public function cryptView(): string
     {
         $cssFiles = ["navbar", "crypt"];
         return $this->twig->render('crypt.html.twig', ["cssFiles" => $cssFiles]);
     }
 
-    /**
-     * @throws \Twig\Error\SyntaxError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\LoaderError
-     */
     public function aboutView(): string
     {
         $cssFiles = ["navbar", "about"];
         return $this->twig->render( 'about.html.twig', ["cssFiles" => $cssFiles]);
-    }
+    }*/
 }

@@ -1,0 +1,31 @@
+/*base*/
+body,
+h1,
+h2,
+h3,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    height: auto;
+    background-color: var(--white);
+}
+
+
+/* color */
+:root {
+    --bg-primary-color: #726DA8;
+    --bg-secondary-color: #7D8CC4;
+    --bg-tertiary-color: #C0C5C1;
+    --white: #EFF7F6;
+    --black: #343434;
+}
+
+

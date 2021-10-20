@@ -13,5 +13,21 @@
 {% endblock %}
 
 {% block content %}
-    <p>je suis dans crypt</p>
+{#<form class="radio-input">
+    <label for="Mode">
+        Mode
+        <input id="Mode" type="radio" name="shiftEncryption" value="shiftEncryption" checked>
+        <input id="Mode" type="radio" name="vigenereCipher" value="vigenereCipher">
+    </label>
+</form>#}
+    <form class="text-input" action="" method="POST">
+        <label for="textInput">Text to Crypt</label>
+        <textarea id="textInput" name="textInput" placeholder="Write the text to encode"></textarea>
+        <button type="submit">Encode !</button>
+    </form>
+    <form class="text-translated" action="" method="POST">
+        <label for="textTranslated">Text to DCrypt</label>
+        <textarea id="textTranslated" name="textInput" placeholder="Text encoded !"></textarea>
+        <button type="submit">Decode !</button>
+    </form>
 {% endblock %}

@@ -2,7 +2,7 @@
     "name": "asa/crypt",
     "autoload": {
         "psr-4": {
-            "control\\": "src/controllers/"
+            "Src\\": "src/"
         }
     },
     "authors": [
