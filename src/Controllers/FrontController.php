@@ -1,5 +1,6 @@
 <?php
 
+namespace Src\Controllers;
 //TODO problem avec namespace
 
 use Twig\Environment;
@@ -13,35 +14,23 @@ class FrontController
 
     public function __construct()
     {
-        $loader = new Twig\Loader\FilesystemLoader(__DIR__ . '/../../templates');
-        $this->twig = new Twig\Environment($loader, ['debug' => true]);
-        $this->twig->addExtension(new Twig\Extension\DebugExtension());
+        $loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/../../templates');
+        $this->twig = new \Twig\Environment($loader, ['debug' => true]);
+        $this->twig->addExtension(new \Twig\Extension\DebugExtension());
     }
 
-    /**
-     * @throws SyntaxError
-     * @throws RuntimeError
-     * @throws LoaderError
-     */
     public function addView(string $page): string
     {
         $cssFiles = ["settings", "navbar", $page];
-        return $this->twig->render('/' . $page . '.html.twig', ["cssFiles" => $cssFiles]);
+        $jsFiles = ["crypt"];
+
+        try {
+            return $this->twig->render('/' . $page . '.html.twig', [
+                "cssFiles" => $cssFiles,
+                "jsFiles" => $jsFiles,
+            ]);
+        } catch (LoaderError | RuntimeError | SyntaxError $e) {
+            return $e->getMessage();
+        }
     }
-
-
-
-    
-
-    /*    public function cryptView(string $encodedMessage = null, string $decodedMessage = null): string
-    {
-        $cssFiles = ["settings", "navbar", "crypt"];
-        return $this->twig->render('crypt.html.twig', ["cssFiles" => $cssFiles,
-            "encodedMessage" => $encodedMessage,
-            "decodedMessage" => $decodedMessage
-        ]);
-    }*/
-
-
-
 }

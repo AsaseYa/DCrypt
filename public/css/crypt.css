@@ -2,64 +2,120 @@
     height: 100%;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 4rem 1fr repeat(8, 1fr) 2rem 2rem; /*à modifier */
+    grid-template-rows: 5rem repeat(12, 1fr); /*à modifier */
     grid-template-areas:
             "navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar"
-            ". . option option option option option option option option . ."
-            ". . textInput textInput textInput . . textTranslated textTranslated textTranslated . ."
-            ". . textInput textInput textInput . . textTranslated textTranslated textTranslated . ."
-            ". . textInput textInput textInput . . textTranslated textTranslated textTranslated . ."
-            ". . textInput textInput textInput translate translate textTranslated textTranslated textTranslated . ."
-            ". . textInput textInput textInput translate translate textTranslated textTranslated textTranslated . ."
-            ". . textInput textInput textInput . . textTranslated textTranslated textTranslated . ."
-            ". . textInput textInput textInput . . textTranslated textTranslated textTranslated . ."
-            ". . textInput textInput textInput . . textTranslated textTranslated textTranslated . ."
             ". . . . . . . . . . . ."
+            ". . description description description description description description description description . ."
+            ". . description description description description description description description description . ."
+            ". textInput textInput textInput textInput . . textTranslated textTranslated textTranslated textTranslated ."
+            ". textInput textInput textInput textInput translate translate textTranslated textTranslated textTranslated textTranslated ."
+            ". textInput textInput textInput textInput translate translate textTranslated textTranslated textTranslated textTranslated ."
+            ". textInput textInput textInput textInput translate translate textTranslated textTranslated textTranslated textTranslated ."
+            ". textInput textInput textInput textInput translate translate textTranslated textTranslated textTranslated textTranslated ."
+            ". textInput textInput textInput textInput translate translate textTranslated textTranslated textTranslated textTranslated ."
+            ". textInput textInput textInput textInput translate translate textTranslated textTranslated textTranslated textTranslated ."
+            ". textInput textInput textInput textInput . . textTranslated textTranslated textTranslated textTranslated ."
             ". . . . . . . . . . . .";
     justify-items: center;
 }
 
-/*.radio-input {
-    grid-area: option;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    margin: 1rem 0 1rem 0;
-}*/
+.gap-number-container {
+    grid-area: translate;
+    height: 100%;
+}
 
+.gap-number-slider {
+    -webkit-appearance: slider-vertical;
+    appearance: none;
+    height: 100%;
+    padding: 0;
+    border-radius: 5px;
+    outline: none;
+    background: var(--black);
+}
+
+
+/*webkit browsers slider*/
+.gap-number-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 3rem;
+    height: 1rem;
+    border: 1px solid var(--black);
+    overflow: visible;
+    cursor: pointer;
+}
+
+.gap-number-slider[orient=vertical] {
+    writing-mode: bt-lr; /* IE */
+    -webkit-appearance: slider-vertical; /* WebKit */
+}
+
+/*firefox settings of slider*/
+.gap-number-slider::-moz-focus-outer {
+    border: 0;
+}
+
+.gap-number-slider::-moz-range-thumb {
+    -moz-appearance: none;
+    width: 3rem;
+    height: 1rem;
+    border: 1px solid var(--black);
+    overflow: visible;
+    cursor: pointer;
+}
 
 .text-input {
     width: 100%;
     height: 100%;
     grid-area: textInput;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(8, 1fr); /*à modifier */
     grid-template-areas:
-            "label label label"
-            "textArea textArea textArea "
-            "textArea textArea textArea "
-            "textArea textArea textArea "
-            "textArea textArea textArea "
-            "textArea textArea textArea "
-            "textArea textArea textArea "
-            "button button button";
+            "label label label ."
+            "textArea textArea textArea . "
+            "textArea textArea textArea . "
+            "textArea textArea textArea textInputGapValue "
+            "textArea textArea textArea textInputGapValue "
+            "textArea textArea textArea . "
+            "textArea textArea textArea . "
+            "button button button .";
     justify-items: center;
 }
 
-.text-input > label {
+.text-input > .text-input-gap-label {
+    grid-area: textInputGapValue;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    width: 3rem;
+    border: 1px solid var(--black);
+    border-radius: 50%;
+    color: var(--white);
+    background-color: var(--black);
+    font-size: 1.5rem;
+}
+
+.text-input > .text-input-label-area {
     grid-area: label;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    text-align: center;
-    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    padding: 1rem 0 1rem 0;
+    height: 100%;
     background-color: var(--black);
     color: var(--bg-tertiary-color);
+    font-size: 2rem;
 }
 
 .text-input > textarea {
+    font-family: 'Roboto Mono', monospace;
     font-size: 1rem;
     margin: 0;
     padding: 0.3rem;
@@ -67,6 +123,7 @@
     width: calc(100% - 2px - 0.6rem);
     border: 1px solid var(--black);
     resize: none;
+    outline: none
 }
 
 .text-input > button {
@@ -79,6 +136,8 @@
     cursor: pointer;
     color: var(--bg-tertiary-color);
     background-color: var(--black);
+    font-size: 2rem;
+    font-family: 'Roboto Mono', monospace;
 }
 
 .text-translated {
@@ -86,33 +145,52 @@
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(8, 1fr); /*à modifier */
     grid-template-areas:
-            "label label label"
-            "textArea textArea textArea "
-            "textArea textArea textArea "
-            "textArea textArea textArea "
-            "textArea textArea textArea "
-            "textArea textArea textArea "
-            "textArea textArea textArea "
-            "button button button";
+            ". label label label"
+            ". textArea textArea textArea"
+            ". textArea textArea textArea"
+            "textInputGapValue textArea textArea textArea"
+            "textInputGapValue textArea textArea textArea"
+            ". textArea textArea textArea"
+            ". textArea textArea textArea"
+            ". button button button";
     justify-items: center;
 }
 
-.text-translated > label {
+.text-translated > .text-translated-gap-label {
+    grid-area: textInputGapValue;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    width: 3rem;
+    border: 1px solid var(--black);
+    border-radius: 50%;
+    color: var(--white);
+    background-color: var(--black);
+    font-size: 1.5rem;
+}
+
+.text-translated > .text-translated-label-area {
     grid-area: label;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    text-align: center;
-    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    padding: 1rem 0 1rem 0;
+    height: 100%;
     background-color: var(--black);
     color: var(--bg-tertiary-color);
+    font-size: 2rem;
 }
 
 .text-translated > textarea {
+    font-family: 'Roboto Mono', monospace;
     font-size: 1rem;
     margin: 0;
     padding: 0.3rem;
@@ -120,9 +198,11 @@
     width: calc(100% - 2px - 0.6rem);
     border: 1px solid var(--black);
     resize: none;
+    outline: none
 }
 
 .text-translated > button {
+    font-family: 'Roboto Mono', monospace;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -132,6 +212,8 @@
     cursor: pointer;
     color: var(--bg-tertiary-color);
     background-color: var(--black);
+    font-size: 2rem;
+
 }
 
 

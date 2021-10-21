@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}DCrypt{% endblock %}</title>
-    {% block css %}{% endblock %}
+    {% block css %}{#import css files#}{% endblock %}
 </head>
 <body>
 <div class="main-container">
     {% block navbar %}
-
+        {#import navbar#}
     {% endblock %}
     {% block content %}
-
+        {#import content of the page#}
     {% endblock %}
 </div>
 </body>
+
+{% block script %}
+   {#import js files#}
+{% endblock %}
 </html>
