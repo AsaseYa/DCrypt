@@ -13,21 +13,28 @@
 {% endblock %}
 
 {% block content %}
-{#<form class="radio-input">
-    <label for="Mode">
-        Mode
-        <input id="Mode" type="radio" name="shiftEncryption" value="shiftEncryption" checked>
-        <input id="Mode" type="radio" name="vigenereCipher" value="vigenereCipher">
+
+    <label class="gap-number-container" for="gap-number">
+        Shift
+        <input id="gap-number" class="gap-number-slider" orient="vertical" type="range" min="-25" max="+25">
     </label>
-</form>#}
     <form class="text-input" action="" method="POST">
-        <label for="textInput">Text to Crypt</label>
-        <textarea id="textInput" name="clearMessage" placeholder="Write the text to encode">{{ clearMessage }}</textarea>
+        <label class="text-input-label-area" for="textInput">Text to Crypt</label>
+        <textarea id="textInput" name="clearMessage" spellcheck="false" placeholder="Write the text to encode">{{ clearMessage }}</textarea>
+        <label class="text-input-gap-label" for="textInputGap"></label>
+        <input class="text-input-gap-value" id="textInputGap" type="hidden" name="textInputGap">
         <button type="submit">Encode !</button>
     </form>
+
     <form class="text-translated" action="" method="POST">
-        <label for="textTranslated">Text to DCrypt</label>
-        <textarea id="textTranslated" name="cryptMessage" placeholder="Write the text to decode">{{ cryptMessage }}</textarea>
+        <label class="text-translated-label-area" for="textTranslated">Text to DCrypt</label>
+        <textarea id="textTranslated" name="cryptMessage" spellcheck="false" placeholder="Write the text to decode">{{ cryptMessage }}</textarea>
+        <label class="text-translated-gap-label" for="textTranslatedGap"></label>
+        <input class="text-translated-gap-value" id="textTranslatedGap" type="hidden" name="textTranslatedGap">
         <button type="submit">Decode !</button>
     </form>
+{% endblock %}
+
+{% block script %}
+    {% include 'components/_js.html.twig' %}
 {% endblock %}

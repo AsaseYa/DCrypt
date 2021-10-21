@@ -1,12 +1,11 @@
 <?php
 
+use Src\Controllers\CryptController;
+use Src\Controllers\FrontController;
 use Src\Models\ShiftEncryption;
 
-require_once __DIR__ . "/Controllers/FrontController.php";
-require_once __DIR__ . "/Controllers/CryptController.php";
 
 $urlPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-
 $twigPages = new FrontController();
 
 
@@ -15,7 +14,12 @@ if ('/' === $urlPath) {
 } elseif ('/crypt' === $urlPath && isset($_POST['clearMessage'])) {
 
     $cryptPage = new CryptController();
-    echo $cryptPage->cryptView($_POST['clearMessage']);
+    echo $cryptPage->cryptClearView($_POST['clearMessage'], intval($_POST['textInputGap']));
+
+} elseif ('/crypt' === $urlPath && isset($_POST['cryptMessage'])) {
+
+    $cryptPage = new CryptController();
+    echo $cryptPage->cryptDecryptView($_POST['cryptMessage'], intval($_POST['textTranslatedGap']));
 
 } elseif ('/crypt' === $urlPath) {
     echo $twigPages->addView('crypt');
