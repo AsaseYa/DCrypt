@@ -8,32 +8,34 @@
     {% include 'components/_css.html.twig' %}
 {% endblock %}
 
+
+{#<body>#}
 {% block navbar %}
     {% include 'components/_navbar.html.twig' %}
 {% endblock %}
 
 {% block content %}
-
     <label class="gap-number-container" for="gap-number">
-        Shift
-        <input id="gap-number" class="gap-number-slider" orient="vertical" type="range" min="-25" max="+25">
+        <input id="gap-number" class="gap-number-slider" orient="vertical" type="range" min="-25" max="25">
     </label>
     <form class="text-input" action="" method="POST">
         <label class="text-input-label-area" for="textInput">Text to Crypt</label>
         <textarea id="textInput" name="clearMessage" spellcheck="false" placeholder="Write the text to encode">{{ clearMessage }}</textarea>
         <label class="text-input-gap-label" for="textInputGap"></label>
-        <input class="text-input-gap-value" id="textInputGap" type="hidden" name="textInputGap">
+        <input class="text-input-gap-value" id="textInputGap" type="hidden" value="0" name="textInputGap">
         <button type="submit">Encode !</button>
     </form>
 
     <form class="text-translated" action="" method="POST">
         <label class="text-translated-label-area" for="textTranslated">Text to DCrypt</label>
-        <textarea id="textTranslated" name="cryptMessage" spellcheck="false" placeholder="Write the text to decode">{{ cryptMessage }}</textarea>
+        <textarea id="textTranslated" name="clearMessage" spellcheck="false" placeholder="Write the text to decode">{{ cryptMessage }}</textarea>
         <label class="text-translated-gap-label" for="textTranslatedGap"></label>
-        <input class="text-translated-gap-value" id="textTranslatedGap" type="hidden" name="textTranslatedGap">
+        <input class="text-translated-gap-value" id="textTranslatedGap" value="0" type="hidden" name="textTranslatedGap">
         <button type="submit">Decode !</button>
     </form>
 {% endblock %}
+{#</body>#}
+
 
 {% block script %}
     {% include 'components/_js.html.twig' %}

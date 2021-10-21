@@ -2,7 +2,7 @@
     height: 100%;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 4rem repeat(12, 1fr); /*à modifier */
+    grid-template-rows: 5rem repeat(12, 1fr); /*à modifier */
     grid-template-areas:
             "navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar"
             ". . . . . . . . . . . ."
@@ -14,7 +14,7 @@
             ". textInput textInput textInput textInput translate translate textTranslated textTranslated textTranslated textTranslated ."
             ". textInput textInput textInput textInput translate translate textTranslated textTranslated textTranslated textTranslated ."
             ". textInput textInput textInput textInput translate translate textTranslated textTranslated textTranslated textTranslated ."
-            ". textInput textInput textInput textInput . . textTranslated textTranslated textTranslated textTranslated ."
+            ". textInput textInput textInput textInput translate translate textTranslated textTranslated textTranslated textTranslated ."
             ". textInput textInput textInput textInput . . textTranslated textTranslated textTranslated textTranslated ."
             ". . . . . . . . . . . .";
     justify-items: center;
@@ -23,23 +23,47 @@
 .gap-number-container {
     grid-area: translate;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 1rem;
-
 }
 
 .gap-number-slider {
+    -webkit-appearance: slider-vertical;
     appearance: none;
     height: 100%;
-    width: 50%;
     padding: 0;
     border-radius: 5px;
     outline: none;
     background: var(--black);
 }
 
+
+/*webkit browsers slider*/
+.gap-number-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 3rem;
+    height: 1rem;
+    border: 1px solid var(--black);
+    overflow: visible;
+    cursor: pointer;
+}
+
+.gap-number-slider[orient=vertical] {
+    writing-mode: bt-lr; /* IE */
+    -webkit-appearance: slider-vertical; /* WebKit */
+}
+
+/*firefox settings of slider*/
+.gap-number-slider::-moz-focus-outer {
+    border: 0;
+}
+
+.gap-number-slider::-moz-range-thumb {
+    -moz-appearance: none;
+    width: 3rem;
+    height: 1rem;
+    border: 1px solid var(--black);
+    overflow: visible;
+    cursor: pointer;
+}
 
 .text-input {
     width: 100%;
@@ -65,6 +89,15 @@
     display: flex;
     flex-direction: column;
     align-self: center;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    width: 3rem;
+    border: 1px solid var(--black);
+    border-radius: 50%;
+    color: var(--white);
+    background-color: var(--black);
+    font-size: 1.5rem;
 }
 
 .text-input > .text-input-label-area {
@@ -78,9 +111,11 @@
     height: 100%;
     background-color: var(--black);
     color: var(--bg-tertiary-color);
+    font-size: 2rem;
 }
 
 .text-input > textarea {
+    font-family: 'Roboto Mono', monospace;
     font-size: 1rem;
     margin: 0;
     padding: 0.3rem;
@@ -88,6 +123,7 @@
     width: calc(100% - 2px - 0.6rem);
     border: 1px solid var(--black);
     resize: none;
+    outline: none
 }
 
 .text-input > button {
@@ -100,6 +136,8 @@
     cursor: pointer;
     color: var(--bg-tertiary-color);
     background-color: var(--black);
+    font-size: 2rem;
+    font-family: 'Roboto Mono', monospace;
 }
 
 .text-translated {
@@ -126,6 +164,15 @@
     display: flex;
     flex-direction: column;
     align-self: center;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    width: 3rem;
+    border: 1px solid var(--black);
+    border-radius: 50%;
+    color: var(--white);
+    background-color: var(--black);
+    font-size: 1.5rem;
 }
 
 .text-translated > .text-translated-label-area {
@@ -139,9 +186,11 @@
     height: 100%;
     background-color: var(--black);
     color: var(--bg-tertiary-color);
+    font-size: 2rem;
 }
 
 .text-translated > textarea {
+    font-family: 'Roboto Mono', monospace;
     font-size: 1rem;
     margin: 0;
     padding: 0.3rem;
@@ -149,9 +198,11 @@
     width: calc(100% - 2px - 0.6rem);
     border: 1px solid var(--black);
     resize: none;
+    outline: none
 }
 
 .text-translated > button {
+    font-family: 'Roboto Mono', monospace;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -161,6 +212,8 @@
     cursor: pointer;
     color: var(--bg-tertiary-color);
     background-color: var(--black);
+    font-size: 2rem;
+
 }
 
 

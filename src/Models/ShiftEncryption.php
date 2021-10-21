@@ -15,10 +15,7 @@ class ShiftEncryption extends Decrypt
         $toEncodeChars = str_split($this->stripAccents($cryptMessage));
         foreach ($toEncodeChars as $toEncodeChar) {
             for ($i = 0; $i < count($checkKeys); $i++) {
-                if (is_numeric($toEncodeChar)) {
-                    $messageEncoded .= intval($toEncodeChar) + $gap;
-                    break;
-                } elseif ($toEncodeChar === ' ') {
+                if ($toEncodeChar === ' ') {
                     $messageEncoded .= ' ';
                     break;
                 }
@@ -52,10 +49,7 @@ class ShiftEncryption extends Decrypt
         $toEncodeChars = str_split($this->stripAccents($clearMessage));
         foreach ($toEncodeChars as $toEncodeChar) {
             for ($i = 0; $i < count($checkKeys); $i++) {
-                if (is_numeric($toEncodeChar)) {
-                    $messageEncoded .= intval($toEncodeChar) + $gap;
-                    break;
-                } elseif ($toEncodeChar === ' ') {
+                if ($toEncodeChar === ' ') {
                     $messageEncoded .= ' ';
                     break;
                 }

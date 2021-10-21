@@ -18,7 +18,7 @@ class CryptController extends FrontController
 
     public function cryptClearView(string $clearMessage, int $gap): string
     {
-        //import css
+        //import css et js
         $cssFiles = ["settings", "navbar", "crypt"];
         $jsFiles = ["crypt"];
 
@@ -36,7 +36,7 @@ class CryptController extends FrontController
 
     public function cryptDecryptView(string $cryptMessage, int $gap): string
     {
-        //import css
+        //import css et js
         $cssFiles = ["settings", "navbar", "crypt"];
         $jsFiles = ["crypt"];
 
@@ -47,8 +47,8 @@ class CryptController extends FrontController
         return $this->twig->render('crypt.html.twig', [
             "cssFiles" => $cssFiles,
             "jsFiles" => $jsFiles,
-            "clearMessage" => $cryptMessage,
-            "cryptMessage" => $decryptMessage
+            "clearMessage" => $decryptMessage,
+            "cryptMessage" => $cryptMessage
         ]);
     }
 }

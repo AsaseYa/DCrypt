@@ -2,7 +2,7 @@
     height: 100%;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 4rem 3rem repeat(8, auto) 2rem 2rem; /*à modifier */
+    grid-template-rows: 5rem 3rem repeat(8, auto) 2rem 2rem; /*à modifier */
     grid-template-areas:
             "navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar"
             ". . . . . . . . . . . ."

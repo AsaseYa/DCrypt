@@ -9,10 +9,8 @@ const gapNumberSlider = document.querySelector('.gap-number-slider');
 function modifyGap() {
     textInputGapLabel.innerHTML = gapNumberSlider.value;
     textTranslatedGapLabel.innerHTML = -gapNumberSlider.value;
-    textInputGapValue.value = gapNumberSlider.value;
+    textInputGapValue.value = +gapNumberSlider.value;
     textTranslatedGapValue.value = -gapNumberSlider.value;
-
-    console.log(textInputGapValue.value);
 }
 
 textInputGapLabel.innerHTML = gapNumberSlider.value;

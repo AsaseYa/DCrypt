@@ -23,7 +23,7 @@ class FrontController
     {
         $cssFiles = ["settings", "navbar", $page];
         $jsFiles = ["crypt"];
-        
+
         try {
             return $this->twig->render('/' . $page . '.html.twig', [
                 "cssFiles" => $cssFiles,
@@ -33,16 +33,4 @@ class FrontController
             return $e->getMessage();
         }
     }
-
-
-    /*    public function cryptView(string $encodedMessage = null, string $decodedMessage = null): string
-    {
-        $cssFiles = ["settings", "navbar", "crypt"];
-        return $this->twig->render('crypt.html.twig', ["cssFiles" => $cssFiles,
-            "encodedMessage" => $encodedMessage,
-            "decodedMessage" => $decodedMessage
-        ]);
-    }*/
-
-
 }
